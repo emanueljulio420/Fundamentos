@@ -1,0 +1,16 @@
+footer{
+    background-color: darkgray;
+    text-align: center;
+}
+
+.texto {
+    padding-top: 2%;
+}
+.division{
+    align-items: center;
+    text-align: center;
+    display: grid;
+    grid-template-columns: [x0] 50% [x1] 50%;
+    padding: 0.8%;
+  }
+  

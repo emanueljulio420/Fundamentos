@@ -1,0 +1,34 @@
+img {
+  margin: 2%;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: [x0] 50% [x1] 50%;
+  background-color: #d21400;
+  padding: 0.8%;
+}
+
+.izquierda {
+  grid-column-start: x0 / x1;
+}
+
+.derecha {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  grid-column: x1 / x2;
+  text-align: right;
+}
+
+.admin {
+  border-radius: 20px;
+  background-color: initial;
+  padding: 1%;
+  font-size: 25px;
+  margin-right: 5%;
+}
+
+.admin:hover {
+  color: white;
+}
