@@ -2,6 +2,7 @@ import "../Estilos/Index.css";
 
 import React from "react";
 import logo_c from "../Imagenes/logo_casa_club.png";
+import logo_v from "../Imagenes/logo_Viviendas_vives.png";
 
 function Index() {
   return (
@@ -19,7 +20,7 @@ function Index() {
         </div>
         <div className="vivienda">
           <a href="">
-            <img className="lugares" src={logo_c} alt=""></img>
+            <img className="lugares" src={logo_v} alt=""></img>
             <br></br>
             <h2>Vivienda vives</h2>
           </a>
