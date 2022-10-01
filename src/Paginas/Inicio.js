@@ -1,9 +1,8 @@
-
 import Header from "../Componentes/Header";
-import Index from "../Componentes/Index";
+import Index from "../Componentes/Inicio";
 import Footer from "../Componentes/Footer";
 
-function App() {
+function Inicio() {
   return (
     <div className="index">
       <Header />
@@ -13,4 +12,4 @@ function App() {
   );
 }
 
-export default App;
+export default Inicio;
