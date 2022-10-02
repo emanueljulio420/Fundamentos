@@ -1,8 +1,18 @@
-import { Alert } from "bootstrap";
 import React from "react";
 
-
 function Cotizacion() {
+  function enviarcorreo() {
+    var nombreC = document.getElementById("nombreC").value;
+    var nombreE = document.getElementById("nombreE").value;
+    var nombreD = document.getElementById("nombreD").value;
+    var hora = document.getElementById("hora").value;
+    var fecha = document.getElementById("fecha").value;
+    var tipoMontaje = document.getElementById("montaje").value;
+    var correo = document.getElementById("correo").value;
+    alert(nombreC,nombreE,nombreD,hora,fecha,tipoMontaje,correo);
+
+  }
+
   return (
     <main>
       <section class="text-center container">
@@ -121,51 +131,10 @@ function Cotizacion() {
               required
             ></textarea>
           </div>
-          <div class="col-md-2 form-check">
-          <label for="exampleFormControlTextarea1" class="form-label">
-              Otros servicios:
-            </label>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="exampleRadios"
-                id="exampleRadios1"
-                value="option1"
-              />
-              <label class="form-check-label" for="exampleRadios1">
-                Default radio
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="exampleRadios"
-                id="exampleRadios2"
-                value="option2"
-              />
-              <label class="form-check-label" for="exampleRadios2">
-                Second default radio
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="exampleRadios"
-                id="exampleRadios3"
-                value="option3"
-              />
-              <label class="form-check-label" for="exampleRadios3">
-                Disabled radio
-              </label>
-            </div>
-          </div>
           <button
             class="btn my-3 border-danger btn-outline-dark p-3"
             type="sumit"
-            onClick="enviarcorreo()"
+            onClick={enviarcorreo}
           >
             Sign in
           </button>
@@ -173,11 +142,6 @@ function Cotizacion() {
       </div>
     </main>
   );
-}
-
-function enviarcorreo(){
-    var nombreC = document.getElementById("nombreC")
-    Alert(nombreC)
 }
 
 export default Cotizacion;
