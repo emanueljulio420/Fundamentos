@@ -9,7 +9,6 @@ function Cotizacion() {
     var fecha = document.getElementById("fecha").value;
     var tipoMontaje = document.getElementById("montaje").value;
     var correo = document.getElementById("correo").value;
-    alert(nombreC,nombreE,nombreD,hora,fecha,tipoMontaje,correo);
 
   }
 
@@ -136,7 +135,7 @@ function Cotizacion() {
             type="sumit"
             onClick={enviarcorreo}
           >
-            Sign in
+            Cotizar
           </button>
         </form>
       </div>
