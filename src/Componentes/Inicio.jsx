@@ -37,9 +37,11 @@ function Inicio() {
                   <h4 class="my-0 fw-normal text-center">Vivienda Vives</h4>
                 </div>
                 <div class="card-body">
+                  <Link to="/vives">
                   <button type="button" class="w-100 btn btn-lg ">
                     <img src={logo_v} class="img-fluid" alt="" />
                   </button>
+                  </Link>
                 </div>
               </div>
             </div>
