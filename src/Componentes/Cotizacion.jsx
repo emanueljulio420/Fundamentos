@@ -1,16 +1,6 @@
 import React from "react";
 
 function Cotizacion() {
-  function enviarcorreo() {
-    var nombreC = document.getElementById("nombreC").value;
-    var nombreE = document.getElementById("nombreE").value;
-    var nombreD = document.getElementById("nombreD").value;
-    var hora = document.getElementById("hora").value;
-    var fecha = document.getElementById("fecha").value;
-    var tipoMontaje = document.getElementById("montaje").value;
-    var correo = document.getElementById("correo").value;
-
-  }
 
   return (
     <main>
@@ -133,7 +123,6 @@ function Cotizacion() {
           <button
             class="btn my-3 border-danger btn-outline-dark p-3"
             type="sumit"
-            onClick={enviarcorreo}
           >
             Cotizar
           </button>

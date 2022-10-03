@@ -1,5 +1,6 @@
 import React from "react";
 import uni from "../Imagenes/universidad.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -8,11 +9,13 @@ function Header() {
         <div class="navbar-brand d-flex align-items-center">
           <img src={uni} class="img-fluid" alt="" />
         </div>
-        <button
-          class="btn text-white  btn-outline-dark p-3"
-          type="submit">
-          Inicio admin
-        </button>
+        <Link to ="/logging">
+          <button
+            class="btn text-white  btn-outline-dark p-3"
+            type="submit">
+            Inicio admin
+          </button>
+        </Link>
       </div>
     </div>
   );

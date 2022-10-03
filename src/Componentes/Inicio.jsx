@@ -34,7 +34,7 @@ function Inicio() {
             <div class="col">
               <div class="card mb-4 rounded-3 shadow-sm">
                 <div class="card-header py-3 bg-danger">
-                  <h4 class="my-0 fw-normal text-center">Casa club</h4>
+                  <h4 class="my-0 fw-normal text-center">Vivienda Vives</h4>
                 </div>
                 <div class="card-body">
                   <button type="button" class="w-100 btn btn-lg ">
