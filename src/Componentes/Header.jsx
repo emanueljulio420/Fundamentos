@@ -9,7 +9,7 @@ function Header() {
         <div class="navbar-brand d-flex align-items-center">
           <img src={uni} class="img-fluid" alt="" />
         </div>
-        <Link to ="/logging">
+        <Link to ="/loggin">
           <button
             class="btn text-white  btn-outline-dark p-3"
             type="submit">

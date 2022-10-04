@@ -2,7 +2,7 @@ import React from "react";
 // import { Link } from "react-router-dom"
 import balcon from "../Imagenes/BALCON.jpg";
 import estandar from "../Imagenes/Estandar.jpg";
-import terraza from "../Imagenes/Terraza.jpg";
+
 
 
 function Vives() {
@@ -51,7 +51,7 @@ function Vives() {
                                     <h4 class="my-0 fw-normal">Terraza</h4>
                                 </div>
                                 <div class="card-body">
-                                    <img src={terraza} class="img-fluid my-2 border rounded" alt="" width="1000"/>
+                                    <img src="" class="img-fluid my-2 border rounded" alt="" width="1000"/>
                                     <button type="button" class="w-100 btn btn-lg btn-danger">Más información</button>
                                 </div>
                             </div>
