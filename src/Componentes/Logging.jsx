@@ -14,7 +14,7 @@ function Logging() {
     var verificacion = iniciar(usuario, contraseña);
 
     if (verificacion) {
-      return navegador("/");
+      return navegador("/loggin/inicioAdmin");
     }
 
   };
