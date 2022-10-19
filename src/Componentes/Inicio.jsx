@@ -3,8 +3,10 @@ import logo_c from "../Imagenes/logo_casa_club.png";
 import logo_v from "../Imagenes/logo_Viviendas_vives.png";
 import { Link } from "react-router-dom";
 
-
 function Inicio() {
+
+  require('./Modelo/db.php')
+
   return (
     <main>
       <section class="py-5 text-center container">
