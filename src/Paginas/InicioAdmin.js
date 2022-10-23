@@ -6,8 +6,8 @@ function InicioAdmin() {
   return (
     <div className="index">
       <Header />
-        <Index />
-        <Footer />
+      <Index /> 
+      <Footer />
     </div>
   );
 }

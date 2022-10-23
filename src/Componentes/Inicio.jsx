@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Inicio() {
 
-  require('./Modelo/db.php')
+  //require('./Modelo/db.php')
 
   return (
     <main>
