@@ -5,19 +5,19 @@ import uni from "../Imagenes/universidad.png";
 
 function HeaderAdmin() {
   return ( 
-  <nav class="navbar navbar-expand-lg bg-danger shadow-sm  ">
-  <div class="container-fluid">
-  <img src={uni} class="img-fluid" alt="" />
+  <nav className="navbar navbar-expand-lg bg-danger shadow-sm  ">
+  <div className="container-fluid">
+  <img src={uni} className="img-fluid" alt="" />
   
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse  justify-content-around py-lg-5" id="navbarNavAltMarkup">
-      <div class="navbar-nav  ">
+    <div className="collapse navbar-collapse  justify-content-around py-lg-5" id="navbarNavAltMarkup">
+      <div className="navbar-nav  ">
         
-        <button class="text-white   mb-3 bg-danger " href="#">Habitaciones Casa club</button>
-        <button class="text-white   mb-3 bg-danger"  href="#">Eventos Casa Club</button>
+        <button className="text-white   mb-3 bg-danger " href="#">Habitaciones Casa club</button>
+        <button className="text-white   mb-3 bg-danger"  href="#">Eventos Casa Club</button>
         
        
       </div>
