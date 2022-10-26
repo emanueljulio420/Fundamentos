@@ -1,6 +1,5 @@
 //importamos la conexion
 const conexion = require('./Conexion')
-
 // Clase Evento 
 // Nota: En javascript no existen propiamente clases 
 // Se define una funcion, y dentro de ella los metodos de la clase
@@ -80,7 +79,7 @@ function Evento(id_socio="",nombre="",numeroDePersonas="",Alimentacion="",Salon=
 
 const miprimerevento = new Evento();
 //SeMuestranTodosLosRegistros
-//miprimerevento.MostrarAllRegistros();
+miprimerevento.MostrarAllRegistros();
 //Crear evento
 //miprimerevento.Crear_Evento(123,23,"Felipe",37,2,4,"2022-10-11",8);
 //Cancelar evento 

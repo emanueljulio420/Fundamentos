@@ -19,12 +19,7 @@ conexion.connect(function(error){
     } 
 });
 
-
-
 // Ejemplo de consulta 
-
-
-
 
 // exportamos como modulo la conexion para usarla en otros archivos
 module.exports = conexion;
