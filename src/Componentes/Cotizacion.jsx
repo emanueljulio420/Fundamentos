@@ -12,9 +12,9 @@ function Cotizacion() {
         </div>
       </section>
       <div className="container">
-        <form className="row g-3 needs-validation" novalidate>
+        <form className="row g-3 needs-validation" noValidate>
           <div className="col-md-6">
-            <label for="inputEmail4" className="form-label">
+            <label htmlFor="inputEmail4" className="form-label">
               Nombre del evento
             </label>
             <input
@@ -26,7 +26,7 @@ function Cotizacion() {
             />
           </div>
           <div className="col-md-6">
-            <label for="inputPassword4" className="form-label">
+            <label htmlFor="inputPassword4" className="form-label">
               Nombre de la empresa o dependencia udem
             </label>
             <input
@@ -38,19 +38,19 @@ function Cotizacion() {
             />
           </div>
           <div className="col-md-4">
-            <label for="inputCity" className="form-label">
+            <label htmlFor="inputCity" className="form-label">
               Hora
             </label>
             <input type="time" className="form-control" id="hora" required />
           </div>
           <div className="col-md-4">
-            <label for="inputZip" className="form-label">
+            <label htmlFor="inputZip" className="form-label">
               Fecha
             </label>
             <input type="date" className="form-control" id="fecha" required />
           </div>
           <div className="col-md-4">
-            <label for="disabledSelect" className="form-label">
+            <label htmlFor="disabledSelect" className="form-label">
               Tipo de montaje
             </label>
             <select id="montaje" className="form-select" required>
@@ -63,7 +63,7 @@ function Cotizacion() {
             </select>
           </div>
           <div className="col-md-4">
-            <label for="inputPassword4" className="form-label">
+            <label htmlFor="inputPassword4" className="form-label">
               Nombre de contacto
             </label>
             <input
@@ -75,7 +75,7 @@ function Cotizacion() {
             />
           </div>
           <div className="col-md-4">
-            <label for="inputPassword4" className="form-label">
+            <label htmlFor="inputPassword4" className="form-label">
               Correo
             </label>
             <input
@@ -87,7 +87,7 @@ function Cotizacion() {
             />
           </div>
           <div className="col-md-4">
-            <label for="inputPassword4" className="form-label">
+            <label htmlFor="inputPassword4" className="form-label">
               Telefono
             </label>
             <input
@@ -99,7 +99,7 @@ function Cotizacion() {
             />
           </div>
           <div className="col-md-6">
-            <label for="exampleFormControlTextarea1" className="form-label">
+            <label htmlFor="exampleFormControlTextarea1" className="form-label">
               Descirpcion de alimentacion
             </label>
             <textarea
@@ -110,7 +110,7 @@ function Cotizacion() {
             ></textarea>
           </div>
           <div className="col-md-6">
-            <label for="exampleFormControlTextarea1" className="form-label">
+            <label htmlFor="exampleFormControlTextarea1" className="form-label">
               Notas importantes
             </label>
             <textarea
