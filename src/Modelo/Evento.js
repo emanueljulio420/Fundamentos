@@ -6,7 +6,7 @@ const conexion = require('./Conexion')
 
 class Evento {
 
-    constructor(id_socio = "", nombre = "", numeroDePersonas = "", Alimentacion = "", Salon = "", Fecha = "", Montaje = "") {
+    constructor(id_socio  = "", nombre = "", numeroDePersonas = "", Alimentacion = "", Salon = "", Fecha = "", Montaje = "") {
         //constructor
         this.cedula = id_socio;
         this.nombre = nombre;

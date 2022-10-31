@@ -38,7 +38,7 @@ function Logging() {
             <img src={img} className="img-fluid" alt="" width="100" height="100" />
           </div>
           <div className="modal-body p-5 pt-0">
-            <form className="needs-validation" onSubmit={handleSubmit} noValidate>
+            <form className="needs-validation" onSubmit={handleSubmit} >
               <div className="form-floating col-md-12 mb-3">
                 <input type="text" className="form-control rounded-3" id="usuario" onChange={ev => setUsuario(ev.target.value)} placeholder="Usuario" required />
                 <label htmlFor="floatingInput">Usuario</label>

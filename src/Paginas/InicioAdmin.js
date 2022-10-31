@@ -1,13 +1,11 @@
-import Index from "../Componentes/Inicio";
-import Footer from "../Componentes/Footer";
+import Inicio from "../Componentes/InicioAdmin";  
 import HeaderAdmin from "../Componentes/HeaderAdmin";
 
 function InicioAdmin() {
   return (
     <div className="index">
       <HeaderAdmin />
-      <Index /> 
-      <Footer />
+      <Inicio /> 
     </div>
   );
 }

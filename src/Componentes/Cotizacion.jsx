@@ -1,7 +1,6 @@
 import React from "react";
 
 function Cotizacion() {
-
   return (
     <main>
       <section className="text-center container">
@@ -12,7 +11,7 @@ function Cotizacion() {
         </div>
       </section>
       <div className="container">
-        <form className="row g-3 needs-validation" noValidate>
+        <form className="row g-3 needs-validation">
           <div className="col-md-6">
             <label htmlFor="inputEmail4" className="form-label">
               Nombre del evento
@@ -38,87 +37,47 @@ function Cotizacion() {
             />
           </div>
           <div className="col-md-4">
-            <label htmlFor="inputCity" className="form-label">
-              Hora
-            </label>
-            <input type="time" className="form-control" id="hora" required />
-          </div>
-          <div className="col-md-4">
-            <label htmlFor="inputZip" className="form-label">
-              Fecha
-            </label>
-            <input type="date" className="form-control" id="fecha" required />
-          </div>
-          <div className="col-md-4">
             <label htmlFor="disabledSelect" className="form-label">
               Tipo de montaje
             </label>
             <select id="montaje" className="form-select" required>
               <option>Seleccione montaje</option>
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>
+              <option value={1}>Auditorio</option>
+              <option value={2}>Escuela</option>
+              <option value={3}>Banquete / Coctel con pita</option>
+              <option value={4}>Imperial</option>
+              <option value={5}>Herradura</option>
+              <option value={6}>Ruso</option>
+              <option value={7}>Banquete sin pista</option>
+              <option value={8}>Redonda</option>
             </select>
           </div>
           <div className="col-md-4">
             <label htmlFor="inputPassword4" className="form-label">
-              Nombre de contacto
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="nombreC"
-              placeholder="Nombre de contacto"
-              required
-            />
-          </div>
-          <div className="col-md-4">
-            <label htmlFor="inputPassword4" className="form-label">
-              Correo
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="correo"
-              placeholder="Correo"
-              required
-            />
-          </div>
-          <div className="col-md-4">
-            <label htmlFor="inputPassword4" className="form-label">
-              Telefono
+              Numero de personas
             </label>
             <input
               type="number"
               className="form-control"
-              id="telefono"
-              placeholder="Telefono"
+              id="numPersonas"
+              placeholder="Numero de personas"
               required
             />
           </div>
-          <div className="col-md-6">
-            <label htmlFor="exampleFormControlTextarea1" className="form-label">
-              Descirpcion de alimentacion
+          <div className="col-md-4">
+            <label htmlFor="disabledSelect" className="form-label">
+              Tipo de alimentacion
             </label>
-            <textarea
-              className="form-control"
-              id="descripcionA"
-              rows="3"
-              required
-            ></textarea>
-          </div>
-          <div className="col-md-6">
-            <label htmlFor="exampleFormControlTextarea1" className="form-label">
-              Notas importantes
-            </label>
-            <textarea
-              className="form-control"
-              id="notas"
-              rows="3"
-              required
-            ></textarea>
+            <select id="montaje" className="form-select" required>
+            <option>Seleccione alimentacion</option>
+              <option value={1}>Aperitivo o Coffee break</option>
+              <option value={2}>Buffet, gran cantidad de platos</option>
+              <option value={3}>Banquete / Coctel con pita</option>
+              <option value={4}>Cóctel</option>
+              <option value={5}>Recepción</option>
+              <option value={6}>Brunch</option>
+              <option value={7}>Box lunch</option>
+            </select>
           </div>
           <button
             className="btn my-3 border-danger btn-outline-dark p-3"

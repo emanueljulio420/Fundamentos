@@ -19,3 +19,16 @@ footer{
         display: block;
     }
 }
+.Links{
+    color: black;
+    font-size: 200%;
+    margin-left: 30px;
+    scrollbar-gutter:inherit;
+}
+
+.Links:hover{
+    color: black;
+    font-size: 200%;
+    margin-left: 30px;
+    scrollbar-gutter:inherit;
+}

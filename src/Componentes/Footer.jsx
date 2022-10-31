@@ -1,4 +1,4 @@
-import "../Estilos/Footer.css";
+import "../Estilos/Estilos.css";
 import React from "react";
 
 function Footer() {
