@@ -4,28 +4,31 @@ import evento from "../Modelo/Evento";
 
 var cedulas = [];
 
+var even = [];
+
+const numeritoEvento = 0;
+
 axios
-  .get("http://localhost:4000/usuarios")
+  .get("http://localhost:4000/eventos")
   .then((response) => {
-    cedulas = response.data;
-    console.log(cedulas);
+    even = response.data;
+    console.log(even);
   })
   .catch((e) => {
     console.log(e);
   });
 
-  var eventos = [];
-  axios
-    .get("http://localhost:4000/eventos")
-    .then((response) => {
-      eventos = response.data;
-      console.log(eventos);
-    })
-    .catch((e) => {
-      console.log(e);
-    });
+axios
+  .get("http://localhost:4000/usuarios")
+  .then((response) => {
+    cedulas = response.data;
+  })
+  .catch((e) => {
+    console.log(e);
+  });
 
 function CrearEvento() {
+  const [numeroE, setnumeroE] = useState("");
   const [nombreEv, setnombreEv] = useState("");
   const [nombreEm, setnombreEm] = useState("");
   const [hora, sethora] = useState("");
@@ -41,15 +44,28 @@ function CrearEvento() {
   const handleSubmit = (ev) => {
     ev.preventDefault();
     var verificacion = verificar(
+      fecha,
       parseFloat(telC),
       parseFloat(numeroP),
       parseFloat(cedula)
     );
     if (verificacion) {
-
-      console.log(eventos);
+      const newEvento = {
+        IdSocio: cedula,
+        NombreE: nombreEv,
+        NombreD: nombreEm,
+        NombreC: nombreC,
+        telefonoC: telC,
+        Fecha: fecha,
+        Hora: hora,
+        Tipodemontaje: tipoMontaje,
+        NumeroP: numeroP,
+        Alimentacion: tipoAlimentacion,
+        Notas: descripcon,
+      };
+      console.log(newEvento);
       const Evento = new evento();
-      Evento.nuevoEvento(eventos.length, {
+      Evento.nuevoEvento({
         IdSocio: cedula,
         NombreE: nombreEv,
         NombreD: nombreEm,
@@ -65,16 +81,56 @@ function CrearEvento() {
     }
   };
 
+  const verificarEvento = (ev) => {
+    ev.preventDefault();
+    for (var i = 1; i <= even.length + 1; i++) {
+      if (parseFloat(numeroE) === even[i]["Id"]) {
+        const numeritoEvento = i;
+        var inputnombreE = document.getElementById("nombreE");
+        inputnombreE.value = even[numeritoEvento]["NombreE"];
+        var inputnombreD = document.getElementById("nombreD");
+        inputnombreD.value = even[numeritoEvento]["NombreD"];
+        var selectalimetno = document.getElementById("alimentacion");
+        selectalimetno.value = even[numeritoEvento]["Alimentacion"]
+        var selectmontaje = document.getElementById("montaje");
+        selectmontaje.value = even[numeritoEvento]["Tipodemontaje"]
+      }
+    }
+    alert("Evento no existe");
+  };
+
   return (
     <main>
       <section className="text-center container">
         <div className="row py-lg-5">
           <div className="col-lg-6 col-md-8 mx-auto">
-            <h1>Nuevo Evento</h1>
+            <h1>Modificar Evento</h1>
           </div>
         </div>
       </section>
       <div className="container">
+        <form className="row m-5 needs-validation" onSubmit={verificarEvento}>
+          <div className="col-md-6">
+            <label htmlFor="phone" className="form-label">
+              Numero de evento
+            </label>
+            <input
+              type="number"
+              className="form-control"
+              id="numEvento"
+              onChange={(ev) => setnumeroE(ev.target.value)}
+              value={even[numeritoEvento]["NumeroE"]}
+              placeholder="Numero de evento"
+              required
+            />
+          </div>
+          <button
+            className="btn my-3 col-md-6 border-danger btn-outline-danger p-3"
+            type="sumit"
+          >
+            Buscar evento
+          </button>
+        </form>
         <form className="row g-3 needs-validation" onSubmit={handleSubmit}>
           <div className="col-md-6">
             <label htmlFor="NameE" className="form-label">
@@ -204,7 +260,7 @@ function CrearEvento() {
               Tipo de alimentacion
             </label>
             <select
-              id="montaje"
+              id="alimentacion"
               className="form-select"
               onChange={(ev) => setTipoAlimentacion(ev.target.value)}
               required
@@ -245,7 +301,7 @@ function CrearEvento() {
 
 export default CrearEvento;
 
-const verificar = (telC, numeroP, cedula) => {
+const verificar = (fecha, telC, numeroP, cedula) => {
   if (telC > 1000000000 && telC < 10000000000) {
     alert("Telefono incorrecto");
     return false;

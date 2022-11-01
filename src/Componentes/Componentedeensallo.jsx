@@ -4,6 +4,7 @@ import evento from "../Modelo/Evento";
 
 var cedulas = [];
 
+
 axios
   .get("http://localhost:4000/usuarios")
   .then((response) => {
@@ -14,55 +15,38 @@ axios
     console.log(e);
   });
 
-  var eventos = [];
-  axios
-    .get("http://localhost:4000/eventos")
-    .then((response) => {
-      eventos = response.data;
-      console.log(eventos);
-    })
-    .catch((e) => {
-      console.log(e);
-    });
 
 function CrearEvento() {
-  const [nombreEv, setnombreEv] = useState("");
-  const [nombreEm, setnombreEm] = useState("");
-  const [hora, sethora] = useState("");
-  const [fecha, setfecha] = useState("");
-  const [tipoMontaje, setTipoMontaje] = useState("");
-  const [numeroP, setnumeroP] = useState("");
-  const [nombreC, setnombreC] = useState("");
-  const [telC, settelC] = useState("");
-  const [tipoAlimentacion, setTipoAlimentacion] = useState("");
-  const [descripcon, setdescripcon] = useState("");
-  const [cedula, setCedula] = useState("");
+
+  const [body, setBody] = useState({
+    IdSocio: "",
+    NombreE: "",
+    NombreD: "",
+    NombreC: "",
+    telefonoC: "",
+    Fecha: "",
+    Hora: "",
+    Tipodemontaje: "",
+    NumeroP: "",
+    Alimentacion: "",
+    Notas: "",
+  });
+
+  const Evento = new evento(body);
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    var verificacion = verificar(
-      parseFloat(telC),
-      parseFloat(numeroP),
-      parseFloat(cedula)
-    );
-    if (verificacion) {
+    console.log(body);
+    Evento.nuevoEvento(body);
+  };
 
-      console.log(eventos);
-      const Evento = new evento();
-      Evento.nuevoEvento(eventos.length, {
-        IdSocio: cedula,
-        NombreE: nombreEv,
-        NombreD: nombreEm,
-        NombreC: nombreC,
-        telefonoC: telC,
-        Fecha: fecha,
-        Hora: hora,
-        Tipodemontaje: tipoMontaje,
-        NumeroP: numeroP,
-        Alimentacion: tipoAlimentacion,
-        Notas: descripcon,
-      });
-    }
+
+  const inputChange = ({ target }) => {
+    const { name, value } = target;
+    setBody({
+      ...body,
+      [name]: value,
+    });
   };
 
   return (
@@ -83,8 +67,9 @@ function CrearEvento() {
             <input
               type="text"
               className="form-control"
-              id="nombreE"
-              onChange={(ev) => setnombreEv(ev.target.value)}
+              name="NombreE"
+              onChange={inputChange}
+              value={body.NombreE}
               placeholder="Nombre del evento"
               required
             />
@@ -96,9 +81,10 @@ function CrearEvento() {
             <input
               type="text"
               className="form-control"
-              id="nombreD"
+              name="NombreD"
+              value={body.NombreD}
               placeholder="Nombre de la empresa o dependencia udem"
-              onChange={(ev) => setnombreEm(ev.target.value)}
+              onChange={inputChange}
               required
             />
           </div>
@@ -109,8 +95,9 @@ function CrearEvento() {
             <input
               type="text"
               className="form-control"
-              id="nombreC"
-              onChange={(ev) => setnombreC(ev.target.value)}
+              name="NombreC"
+              onChange={inputChange}
+              value={body.NombreC}
               placeholder="Nombre del contacto"
               required
             />
@@ -122,8 +109,9 @@ function CrearEvento() {
             <input
               type="number"
               className="form-control"
-              id="cedula"
-              onChange={(ev) => setCedula(ev.target.value)}
+              name="IdSocio"
+              onChange={inputChange}
+              value={body.IdSocio}
               placeholder="Telefono del contacto"
               required
             />
@@ -135,8 +123,9 @@ function CrearEvento() {
             <input
               type="number"
               className="form-control"
-              id="telC"
-              onChange={(ev) => settelC(ev.target.value)}
+              name="telefonoC"
+              onChange={inputChange}
+              value={body.telefonoC}
               placeholder="Telefono del contacto"
               required
             />
@@ -148,8 +137,9 @@ function CrearEvento() {
             <input
               type="time"
               className="form-control"
-              onChange={(ev) => sethora(ev.target.value)}
-              id="hora"
+              onChange={inputChange}
+              value={body.Hora}
+              name="Hora"
               required
             />
           </div>
@@ -160,8 +150,9 @@ function CrearEvento() {
             <input
               type="date"
               className="form-control"
-              id="fecha"
-              onChange={(ev) => setfecha(ev.target.value)}
+              name="Fecha"
+              onChange={inputChange}
+              value={body.Fecha}
               required
             />
           </div>
@@ -170,9 +161,10 @@ function CrearEvento() {
               Tipo de montaje
             </label>
             <select
-              id="montaje"
               className="form-select"
-              onChange={(ev) => setTipoMontaje(ev.target.value)}
+              onChange={inputChange}
+              name="Tipodemontaje"
+              value={body.Tipodemontaje}
               required
             >
               <option>Seleccione montaje</option>
@@ -193,9 +185,10 @@ function CrearEvento() {
             <input
               type="number"
               className="form-control"
-              id="numPersonas"
+              name="NumeroP"
               placeholder="Numero de personas"
-              onChange={(ev) => setnumeroP(ev.target.value)}
+              onChange={inputChange}
+              value={body.NumeroP}
               required
             />
           </div>
@@ -204,9 +197,10 @@ function CrearEvento() {
               Tipo de alimentacion
             </label>
             <select
-              id="montaje"
+              name="Alimentacion"
               className="form-select"
-              onChange={(ev) => setTipoAlimentacion(ev.target.value)}
+              onChange={inputChange}
+              value={body.Alimentacion}
               required
             >
               <option>Seleccione alimentacion</option>
@@ -225,9 +219,10 @@ function CrearEvento() {
             </label>
             <textarea
               className="form-control"
-              id="notas"
+              name="Notas"
               rows="3"
-              onChange={(ev) => setdescripcon(ev.target.value)}
+              value={body.Notas}
+              onChange={inputChange}
               required
             ></textarea>
           </div>
@@ -244,25 +239,3 @@ function CrearEvento() {
 }
 
 export default CrearEvento;
-
-const verificar = (telC, numeroP, cedula) => {
-  if (telC > 1000000000 && telC < 10000000000) {
-    alert("Telefono incorrecto");
-    return false;
-  }
-  if (numeroP < 10) {
-    alert("No cumple el numero de personas minimas");
-    return false;
-  }
-  var cedula_correcta = false;
-  for (var i = 0; i < cedulas.length; i++) {
-    if (cedula === cedulas[i]["cedula"]) {
-      cedula_correcta = true;
-    }
-  }
-  if (!cedula_correcta) {
-    alert("No existe usuario con esa cedula");
-    return false;
-  }
-  return true;
-};

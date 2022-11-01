@@ -11,7 +11,7 @@ function Eventos() {
           Crear evento
         </button>
         </Link>
-        <Link>
+        <Link to='/loggin/inicioAdmin/eventos/modificar'>
         <button class="btn btn-danger my-3 py-4" type="button">
           Modificar evento
         </button>

@@ -29,17 +29,15 @@ class evento {
 
     }
 
-    nuevoEvento = (body) => {
-        axios.post("http://localhost:4000/eventoCrear", body)
+    nuevoEvento = (numeroEventos, datos) => {
+      console.log(numeroEventos)
+        axios.post("http://localhost:4000/evento", datos)
           .then(({ data }) => {
             console.log(data)
-            localStorage.setItem('auth', 'yes')
-            alert("Login correcto");
-            
+            alert('El numero de evento es: '+ numeroEventos)
           })
           .catch(({ response }) => {
             console.log(response.data);
-            alert("Login incorrecto");
   
           });
 

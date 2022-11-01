@@ -8,6 +8,7 @@ import InicioAdmin from "./Paginas/InicioAdmin";
 import Eventos from "./Paginas/Eventos";
 import HabitacionesCasa from "./Paginas/Habitaciones_Casa_club";
 import CrearEventos from "./Paginas/CrearEvento";
+import ModificarEvento from "./Paginas/ModificarEvento"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/loggin/inicioAdmin" element={<InicioAdmin/>}/>
         <Route path="/loggin/inicioAdmin/eventos" element={<Eventos/>}/>
         <Route path="/loggin/inicioAdmin/eventos/crear" element={<CrearEventos/>}/>
+        <Route path="/loggin/inicioAdmin/eventos/modificar" element={<ModificarEvento/>}/>
         <Route path="/loggin/inicioAdmin/h_casa_club" element={<HabitacionesCasa/>}/>
         <Route path="/loggin/inicioAdmin" element={<InicioAdmin/>}/>
         <Route path="/vives" element={<Vives/>}/>
