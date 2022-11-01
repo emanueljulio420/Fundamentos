@@ -1,97 +1,55 @@
-//importamos la conexion
-const conexion = require('./Conexion')
-// Clase Evento 
-// Nota: En javascript no existen propiamente clases 
-// Se define una funcion, y dentro de ella los metodos de la clase
+import axios from "axios";
 
-class Evento {
 
-    constructor(id_socio  = "", nombre = "", numeroDePersonas = "", Alimentacion = "", Salon = "", Fecha = "", Montaje = "") {
-        //constructor
-        this.cedula = id_socio;
-        this.nombre = nombre;
-        this.numeroDePersonas = numeroDePersonas;
-        this.alimentacion = Alimentacion;
-        this.salon = Salon;
-        this.fecha = Fecha;
-        this.montaje = Montaje;
+class evento {
+
+    constructor( Id, IdSocio, NombreE,
+        NombreD,
+        NombreC,
+        telefonoC,
+        Fecha,
+        Hora,
+        Tipodemontaje,
+        NumeroP,
+        Alimentacion,
+        Notas){
+            this.Id = Id
+            this.Id = IdSocio
+            this.IdSocio = IdSocio;
+            this.NombreE = NombreE;
+            this.NombreD = NombreD;
+            this.NombreC = NombreC;
+            this.telefonoC = telefonoC;
+            this.Fecha = Fecha;
+            this.Hora = Hora;
+            this.Tipodemontaje = Tipodemontaje;
+            this.NumeroP = NumeroP;
+            this.Alimentacion = Alimentacion;
+            this.Notas = Notas;
+
     }
 
-        // Muestra todos los registros
-        MostrarAllRegistros = function () {
+    nuevoEvento = (body) => {
+        axios.post("http://localhost:4000/eventoCrear", body)
+          .then(({ data }) => {
+            console.log(data)
+            localStorage.setItem('auth', 'yes')
+            alert("Login correcto");
+            
+          })
+          .catch(({ response }) => {
+            console.log(response.data);
+            alert("Login incorrecto");
+  
+          });
 
-            conexion.query('SELECT * from evento', function (error, resultados, fields) {
-                if (error)
-                    throw error;
-
-                // Esto muestra cada resultado de la busqueda
-                resultados.forEach(result => {
-                    console.log(result);
-                });
-            });
-        };
-        //Fin de la funcion
-        // Crea nuevos eventos La fecha es un str 
-        Crear_Evento = function (id_evento, id_socio, nombre, numeroDePersonas, Salon, Montaje, Fecha) {
-
-            //Para insertar un valor tipo texto se debe envolver en '"+NombreVariableString +"'
-            // Todas las colmnas deben ir con `` 
-            const insertar = "INSERT INTO evento (`Id_Evento`,`Id_socio`,`Nombre`,`#Personas`,`Salon`,`Montaje`,`Fecha`) VALUES (" + id_evento + "," + id_socio + ",'" + nombre + "'," + numeroDePersonas + "," + Salon + "," + Montaje + ",'" + Fecha + "')";
-
-            // Se recoje el error y los resultados 
-            conexion.query(insertar, function (error, resultados) {
-                if (error)
-                    throw error;
-
-                console.log('Insercion exitosa');
-            });
-        };
-
-        CancelarEvento = function (Id_evento, Id_socio) {
-
-            const Eleminar = "DELETE FROM `evento` WHERE Id_Evento=" + Id_evento + " and Id_socio=" + Id_socio + "";
-
-            conexion.query(Eleminar, function (error, resultados) {
-                if (error)
-                    throw error;
-
-                console.log('Eliminacion correcta');
-            });
-
-        };
-
-        ModificarEvento = function (Id_evento, Id_socio) {
-
-            const Eleminar = "DELETE FROM `evento` WHERE Id_Evento=" + Id_evento + " and Id_socio=" + Id_socio + "";
-
-            conexion.query(Eleminar, function (error, resultados) {
-                if (error)
-                    throw error;
-
-                console.log('Eliminacion correcta');
-            });
-        };
-
-    
-}
-
-// Se instancia el objeto
-// Para ejecutar por consola este script 
-// Fundamentos\src\Modelo> nodemon Evento.js
-
-
-const miprimerevento = new Evento();
-//SeMuestranTodosLosRegistros
-//miprimerevento.MostrarAllRegistros();
-//Crear evento
-//miprimerevento.Crear_Evento(434,23,"Felipe",37,2,4,"2022-10-11",8);
-//Cancelar evento 
-//miprimerevento.CancelarEvento(434,23);
+      };
+ 
 
 
 
 
+      
+}  
 
-
-
-
+export default evento;
