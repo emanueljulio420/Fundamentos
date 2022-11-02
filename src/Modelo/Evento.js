@@ -44,10 +44,14 @@ class evento {
  
     eliminarEvento = (IdE) => {
       axios.post("http://localhost:4000/evento/eliminar/evento",IdE)
-      .then()
+      .then(({ data }) => {
+        console.log(data)
+        alert('Evento eliminado')
+      })
+      .catch(({ response }) => {
+        console.log(response.data);
+      });
     }
-
-
 
       
 }  

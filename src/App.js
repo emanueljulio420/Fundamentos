@@ -9,14 +9,11 @@ import Eventos from "./Paginas/Eventos";
 import HabitacionesCasa from "./Paginas/Habitaciones_Casa_club";
 import CrearEventos from "./Paginas/CrearEvento";
 import ModificarEvento from "./Paginas/ModificarEvento"
-
+import EliminarEvento from "./Paginas/EliminarEvento"
 import CrearArrendamientoVives from "./Paginas/CrearArrendamientoVives";
 import CrearReservaHabitacionCasaClub from "./Paginas/CrearReservaHabitacionCasaClub";
-
-
 import ModificarReservaHabitacionCasaClub from "./Paginas/ModificarReservaHabitacionCasaClub";
 import ModificarArrendamiento from "./Paginas/ModificarArrendamiento";
-
 import CrudViviendasVives from "./Paginas/ViviendaVives"
 
 
@@ -31,6 +28,7 @@ function App() {
         <Route path="/loggin/inicioAdmin/eventos" element={<Eventos/>}/>
         <Route path="/loggin/inicioAdmin/eventos/crear" element={<CrearEventos/>}/>
         <Route path="/loggin/inicioAdmin/eventos/modificar" element={<ModificarEvento/>}/>
+        <Route path="/loggin/inicioAdmin/eventos/eliminar" element={<EliminarEvento/>}/>
         <Route path="/loggin/inicioAdmin/h_casa_club" element={<HabitacionesCasa/>}/>
         <Route path="/loggin/inicioAdmin" element={<InicioAdmin/>}/>
         <Route path="/vives" element={<Vives/>}/>

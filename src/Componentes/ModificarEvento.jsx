@@ -27,7 +27,9 @@ axios
     console.log(e);
   });
 
-function CrearEvento() {
+function ModificarEvento() {
+  const Evento = new evento();
+
   const [numeroE, setnumeroE] = useState("");
   const [nombreEv, setnombreEv] = useState("");
   const [nombreEm, setnombreEm] = useState("");
@@ -44,7 +46,6 @@ function CrearEvento() {
   const handleSubmit = (ev) => {
     ev.preventDefault();
     var verificacion = verificar(
-      fecha,
       parseFloat(telC),
       parseFloat(numeroP),
       parseFloat(cedula)
@@ -64,7 +65,6 @@ function CrearEvento() {
         Notas: descripcon,
       };
       console.log(newEvento);
-      const Evento = new evento();
       Evento.nuevoEvento({
         IdSocio: cedula,
         NombreE: nombreEv,
@@ -95,17 +95,23 @@ function CrearEvento() {
         var inputcedula = document.getElementById("cedula");
         inputcedula.value = even[numeritoEvento]['IdSocio'];
         var inputTelefono = document.getElementById("telC");
-        inputTelefono.value = even[numeritoEvento]["telefonoC"]
+        inputTelefono.value = even[numeritoEvento]["telefonoC"];
         var selectalimetno = document.getElementById("alimentacion");
-        selectalimetno.value = even[numeritoEvento]["Alimentacion"]
+        selectalimetno.value = even[numeritoEvento]["Alimentacion"];
         var selectmontaje = document.getElementById("montaje");
-        selectmontaje.value = even[numeritoEvento]["Tipodemontaje"]
-        var inputHora = document.getElementById("Hora");
-        inputHora.value = even[numeritoEvento]['Hora'];
+        selectmontaje.value = even[numeritoEvento]["Tipodemontaje"];
+        var inputFecha = document.getElementById("fecha");
+        inputFecha.value = even[numeritoEvento]["Fecha"];
+        var inputNotas = document.getElementById("notas");
+        inputNotas.value = even[numeritoEvento]["Notas"];
+        var inputNumeroP = document.getElementById("numeroP");
+        inputNumeroP.value = even[numeritoEvento]["NumeroP"];
+        var inputHora = document.getElementById("hora");
+        inputHora.value = even[numeritoEvento]["Hora"];
       }
     }
     alert("Evento no existe");
-  };
+  }
 
   return (
     <main>
@@ -213,7 +219,7 @@ function CrearEvento() {
               type="time"
               className="form-control"
               onChange={(ev) => sethora(ev.target.value)}
-              id="Hora"
+              id="hora"
               required
             />
           </div>
@@ -224,7 +230,7 @@ function CrearEvento() {
             <input
               type="date"
               className="form-control"
-              id="Fecha"
+              id="fecha"
               onChange={(ev) => setfecha(ev.target.value)}
               required
             />
@@ -257,7 +263,7 @@ function CrearEvento() {
             <input
               type="number"
               className="form-control"
-              id="NumeroP"
+              id="numeroP"
               placeholder="Numero de personas"
               onChange={(ev) => setnumeroP(ev.target.value)}
               required
@@ -289,20 +295,14 @@ function CrearEvento() {
             </label>
             <textarea
               className="form-control"
-              id="Notas"
+              id="notas"
               rows="3"
               onChange={(ev) => setdescripcon(ev.target.value)}
               required
             ></textarea>
           </div>
           <button
-            className="btn my-3 mx-5 col-md-4 border-danger btn-outline-danger p-3"
-            type="sumit"
-          >
-            Eliminar Evento
-          </button>
-          <button
-            className="btn my-3 mx-5 col-md-4 border-danger btn-outline-danger p-3"
+            className="btn my-3 border-danger btn-outline-danger p-3"
             type="sumit"
           >
             Modificar Evento
@@ -313,9 +313,9 @@ function CrearEvento() {
   );
 }
 
-export default CrearEvento;
+export default ModificarEvento;
 
-const verificar = (fecha, telC, numeroP, cedula) => {
+const verificar = (telC, numeroP, cedula) => {
   if (telC > 1000000000 && telC < 10000000000) {
     alert("Telefono incorrecto");
     return false;

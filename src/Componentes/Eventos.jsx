@@ -16,6 +16,11 @@ function Eventos() {
           Modificar evento
         </button>
         </Link>
+        <Link to='/loggin/inicioAdmin/eventos/eliminar'>
+        <button class="btn btn-danger my-3 py-4" type="button">
+          Eliminar evento
+        </button>
+        </Link>
       </div>
     </main>
   );
