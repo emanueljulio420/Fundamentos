@@ -189,12 +189,7 @@ function ModificarArrendamientoVives(){
             </button>
             
             
-            <button
-              className="btn my-3 border-danger btn-outline-dark p-3"
-              type="sumit"
-            >
-              Cancelar Arrendamiento
-            </button>
+            
            
           </form>
         </div>

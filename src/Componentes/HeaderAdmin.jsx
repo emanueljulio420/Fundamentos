@@ -9,16 +9,16 @@ function HeaderAdmin() {
         <img className="mx-3" src={uni} alt="/"/>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <Link className="Links" to={'/loggin/inicioAdmin'}>
+            <Link className="Links text-white text-decoration-none" to={'/loggin/inicioAdmin'}>
               Inicio
             </Link>
-            <Link className="Links" to={'/loggin/inicioAdmin/eventos'}>
+            <Link className="Links text-white text-decoration-none" to={'/loggin/inicioAdmin/eventos'}>
               Eventos casa club
             </Link>
-            <Link className="Links" to={'/loggin/inicioAdmin/h_casa_club'}>
+            <Link className="Links text-white text-decoration-none" to={'/loggin/inicioAdmin/h_casa_club'}>
               Habitaciones casa club
             </Link>
-            <Link className="Links" to={'/ViviendasVives'}>
+            <Link className="Links text-white text-decoration-none" to={'/ViviendasVives'}>
               Viviendas Vives
             </Link>
           </div>

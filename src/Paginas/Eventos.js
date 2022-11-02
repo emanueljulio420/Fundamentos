@@ -1,4 +1,4 @@
-import Header from "../Componentes/HeaderAdmin";
+import Header from "../Componentes/HeaderHabitacionesCasaClub";
 import Index from "../Componentes/Eventos";
 
 function Eventos() {

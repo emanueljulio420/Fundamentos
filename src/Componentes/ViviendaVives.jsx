@@ -11,11 +11,18 @@ function ViviendaVives() {
         </button>
         </Link>
 
-        <Link to='/VivendasVives/ModificarArrendamiento'>
+        <Link to='/ViviendasVives/ModificarArrendamiento'>
         <button class="btn btn-danger my-3 py-4" type="button">
           Modificar arriendo
         </button>
         </Link>
+
+        <Link to='/ViviendasVives/CancelarArrendamiento'>
+        <button class="btn btn-danger my-3 py-4" type="button">
+          Cancelar arriendo
+        </button>
+        </Link>
+
         <button class="btn btn-danger my-3 py-4" type="button">
           Consultar disponiblilidad
         </button>

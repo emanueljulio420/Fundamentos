@@ -119,12 +119,7 @@ function ModificarReservaHabitacionCasaClub(){
               >
                 Confirmar Cambios
               </button>
-              <button
-                className="btn my-3 border-danger btn-outline-dark p-3"
-                type="sumit"
-              >
-                Cancelar reserva
-              </button>
+              
             </form>
           </div>
         </main>

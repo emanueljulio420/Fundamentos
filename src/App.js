@@ -16,6 +16,8 @@ import ModificarReservaHabitacionCasaClub from "./Paginas/ModificarReservaHabita
 import ModificarArrendamiento from "./Paginas/ModificarArrendamiento";
 import CrudViviendasVives from "./Paginas/ViviendaVives"
 
+import CancelarReservaHabitacionCasaClub from "./Paginas/CancelarReservaHabitacionCasaClub";
+import CancelarArrendamientoVives from "./Paginas/CancelarArrendamientoVivies"
 
 
 function App() {
@@ -41,7 +43,11 @@ function App() {
         <Route path="/EventosCasaClub/CrearReservaHabitacionCasaClub" element ={<CrearReservaHabitacionCasaClub/>}/>
 
         <Route path="/HabitacionCasaClub/ModificarReserva" element ={<ModificarReservaHabitacionCasaClub/>}/>
-        <Route path="/VivendasVives/ModificarArrendamiento" element ={<ModificarArrendamiento/>}/>
+        <Route path="/ViviendasVives/ModificarArrendamiento" element ={<ModificarArrendamiento/>}/>
+        
+        <Route path="/HabitacionCasaClub/CancelarReserva" element ={<CancelarReservaHabitacionCasaClub/>}/>
+        <Route path="/ViviendasVives/CancelarArrendamiento" element ={<CancelarArrendamientoVives/>}/>
+
 
         <Route path="/ViviendasVives" element ={<CrudViviendasVives/>}/>
 
