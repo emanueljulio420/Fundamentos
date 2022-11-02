@@ -90,10 +90,18 @@ function CrearEvento() {
         inputnombreE.value = even[numeritoEvento]["NombreE"];
         var inputnombreD = document.getElementById("nombreD");
         inputnombreD.value = even[numeritoEvento]["NombreD"];
+        var inputnombreC = document.getElementById("nombreC");
+        inputnombreC.value = even[numeritoEvento]["NombreC"];
+        var inputcedula = document.getElementById("cedula");
+        inputcedula.value = even[numeritoEvento]['IdSocio'];
+        var inputTelefono = document.getElementById("telC");
+        inputTelefono.value = even[numeritoEvento]["telefonoC"]
         var selectalimetno = document.getElementById("alimentacion");
         selectalimetno.value = even[numeritoEvento]["Alimentacion"]
         var selectmontaje = document.getElementById("montaje");
         selectmontaje.value = even[numeritoEvento]["Tipodemontaje"]
+        var inputHora = document.getElementById("Hora");
+        inputHora.value = even[numeritoEvento]['Hora'];
       }
     }
     alert("Evento no existe");
@@ -205,7 +213,7 @@ function CrearEvento() {
               type="time"
               className="form-control"
               onChange={(ev) => sethora(ev.target.value)}
-              id="hora"
+              id="Hora"
               required
             />
           </div>
@@ -216,7 +224,7 @@ function CrearEvento() {
             <input
               type="date"
               className="form-control"
-              id="fecha"
+              id="Fecha"
               onChange={(ev) => setfecha(ev.target.value)}
               required
             />
@@ -249,7 +257,7 @@ function CrearEvento() {
             <input
               type="number"
               className="form-control"
-              id="numPersonas"
+              id="NumeroP"
               placeholder="Numero de personas"
               onChange={(ev) => setnumeroP(ev.target.value)}
               required
@@ -281,17 +289,23 @@ function CrearEvento() {
             </label>
             <textarea
               className="form-control"
-              id="notas"
+              id="Notas"
               rows="3"
               onChange={(ev) => setdescripcon(ev.target.value)}
               required
             ></textarea>
           </div>
           <button
-            className="btn my-3 border-danger btn-outline-danger p-3"
+            className="btn my-3 mx-5 col-md-4 border-danger btn-outline-danger p-3"
             type="sumit"
           >
-            Comfirmar Evento
+            Eliminar Evento
+          </button>
+          <button
+            className="btn my-3 mx-5 col-md-4 border-danger btn-outline-danger p-3"
+            type="sumit"
+          >
+            Modificar Evento
           </button>
         </form>
       </div>

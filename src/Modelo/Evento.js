@@ -34,7 +34,7 @@ class evento {
         axios.post("http://localhost:4000/evento", datos)
           .then(({ data }) => {
             console.log(data)
-            alert('El numero de evento es: '+ numeroEventos)
+            alert('El numero de evento es: '+ (numeroEventos + 1))
           })
           .catch(({ response }) => {
             console.log(response.data);
@@ -43,7 +43,10 @@ class evento {
 
       };
  
-
+    eliminarEvento = (IdE) => {
+      axios.post("http://localhost:4000/evento/eliminar/evento",IdE)
+      .then()
+    }
 
 
 
