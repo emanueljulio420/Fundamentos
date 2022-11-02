@@ -3,7 +3,7 @@ import HeaderVolver from "../Componentes/HeaderCrudVives";
 import ModificarArriendo from "../Componentes/ModificarArrendamientoVives";
 
 
-function ModificarReservaHabitacionCasaClub() {
+function ModificarArriendoVives() {
     return (
       <div className="index">
           <HeaderVolver />
@@ -12,4 +12,4 @@ function ModificarReservaHabitacionCasaClub() {
     );
   }
   
-  export default ModificarReservaHabitacionCasaClub;
+  export default ModificarArriendoVives;

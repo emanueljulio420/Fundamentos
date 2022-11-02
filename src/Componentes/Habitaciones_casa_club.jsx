@@ -16,6 +16,14 @@ function Habitaciones_Casa_club() {
           Modificar reserva
         </button>
         </Link>
+
+        <Link to='/HabitacionCasaClub/CancelarReserva'>
+        <button class="btn btn-danger my-3 py-4" type="button">
+          Cancelar reserva
+        </button>
+        </Link>
+
+
         <button class="btn btn-danger my-3 py-4" type="button">
           Consultar disponiblilidad
         </button>
