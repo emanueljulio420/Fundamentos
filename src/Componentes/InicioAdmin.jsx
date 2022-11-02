@@ -1,15 +1,30 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
+
+var cedulas = [];
+
+axios.get("http://localhost:4000/usuarios")
+  .then((response) => {
+    cedulas = response.data;
+    console.log(cedulas);
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+
 
 function InicioAdmin() {
 
     const [cedula, setCedula] = useState('')
 
+
+
     const handleSubmit = (ev) => {
         ev.preventDefault();
-        var verificacion = buscarUsuario(cedula);
+        var verificacion = buscarUsuario(parseFloat(cedula));
         if (verificacion){
-          
+          alert('Usuaro existe')
         }
         else{
           alert('Usuario no existente')
@@ -44,7 +59,11 @@ function InicioAdmin() {
 }
 
 const buscarUsuario = (cedula) =>{
-    
+  for (var i = 1; i <= cedulas.length + 1; i++) {
+    if (cedula === cedulas[i]['cedula']){
+      return true
+    }
+  }
 }
 
 export default InicioAdmin;

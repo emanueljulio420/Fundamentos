@@ -42,18 +42,18 @@ class evento {
 
       };
  
-    eliminarEvento = (IdE) => {
-      axios.post("http://localhost:4000/evento/eliminar/evento",IdE)
-      .then(({ data }) => {
-        console.log(data)
-        alert('Evento eliminado')
-      })
-      .catch(({ response }) => {
-        console.log(response.data);
-      });
-    }
 
+    onDelete= async(Id) =>{
+      try {
+          const{data}= await axios.post('http://localhost:4000/api/eliminar', {Id:Id}) 
+          alert('Eliminado correctamente')
+      } catch (error) {
+          console.log(error)
+          
+      }
       
+  }
+
 }  
 
 export default evento;

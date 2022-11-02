@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import evento from "../Modelo/Evento";
-import { Alert } from "bootstrap";
-
-var cedulas = [];
 
 var even = [];
-
-const numeritoEvento = 0;
 
 axios
   .get("http://localhost:4000/eventos")
@@ -19,35 +14,40 @@ axios
     console.log(e);
   });
 
-axios
-  .get("http://localhost:4000/usuarios")
-  .then((response) => {
-    cedulas = response.data;
-  })
-  .catch((e) => {
-    console.log(e);
-  });
 
 function EliminarEvento() {
   const Evento = new evento();
 
-  const [numeroE, setnumeroE] = useState("");
+    const [Id , setId] = useState('')
 
+/*
+  const [body, setbody] = useState({Id:""});
+
+
+  const inputChange = ({ target }) => {
+    const { name, value } = target;
+    setbody({
+      ...body,
+      [name]: value,
+    });
+  }
+*/
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-      Evento.nuevoEvento({});
+      Evento.onDelete(Id);
     }
 
 
   const verificarEvento = (ev) => {
     ev.preventDefault();
+    var verificacion = false;
     for (var i = 1; i <= even.length + 1; i++) {
-      if (parseFloat(numeroE) === even[i]["Id"]) {
-        alert('Evento existe')
+      if (parseFloat(Id) === even[i]["Id"]) {
+        alert('El evento existe')
       }
     }
-    alert("Evento no existe");
+
   }
 
   return (
@@ -68,9 +68,9 @@ function EliminarEvento() {
             <input
               type="number"
               className="form-control"
-              id="numEvento"
-              onChange={(ev) => setnumeroE(ev.target.value)}
-              value={even[numeritoEvento]["NumeroE"]}
+              id="Id"
+              name="Id"
+              onChange={(ev) => setId(ev.target.value)}
               placeholder="Numero de evento"
               required
             />
@@ -81,17 +81,18 @@ function EliminarEvento() {
           >
             Buscar evento
           </button>
+        </form>
+        <form className="row m-5 needs-validation" onSubmit={handleSubmit}>
           <button
             className="btn my-3 border-danger btn-outline-danger p-3"
-            onSubmit={handleSubmit}
             type="sumit"
           >
-            Modificar Evento
+            Eliminar Evento
           </button>
-        </form>
+          </form>
       </div>
     </main>
   );
-}
 
+}
 export default EliminarEvento;

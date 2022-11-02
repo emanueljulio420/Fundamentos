@@ -133,7 +133,6 @@ function ModificarEvento() {
               className="form-control"
               id="numEvento"
               onChange={(ev) => setnumeroE(ev.target.value)}
-              value={even[numeritoEvento]["NumeroE"]}
               placeholder="Numero de evento"
               required
             />
