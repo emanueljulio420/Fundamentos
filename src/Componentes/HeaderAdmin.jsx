@@ -21,6 +21,11 @@ function HeaderAdmin() {
             <Link className="Links text-white text-decoration-none" to={'/ViviendasVives'}>
               Viviendas Vives
             </Link>
+
+            <Link className="Links text-white text-decoration-none" to={'/loggin'}>
+              Log out
+            </Link>
+
           </div>
         </div>
       </div>
