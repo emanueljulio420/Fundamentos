@@ -38,7 +38,6 @@ class evento {
           })
           .catch(({ response }) => {
             console.log(response.data);
-  
           });
 
       };

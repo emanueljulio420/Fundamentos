@@ -10,6 +10,17 @@ import HabitacionesCasa from "./Paginas/Habitaciones_Casa_club";
 import CrearEventos from "./Paginas/CrearEvento";
 import ModificarEvento from "./Paginas/ModificarEvento"
 
+import CrearArrendamientoVives from "./Paginas/CrearArrendamientoVives";
+import CrearReservaHabitacionCasaClub from "./Paginas/CrearReservaHabitacionCasaClub";
+
+
+import ModificarReservaHabitacionCasaClub from "./Paginas/ModificarReservaHabitacionCasaClub";
+import ModificarArrendamiento from "./Paginas/ModificarArrendamiento";
+
+import CrudViviendasVives from "./Paginas/ViviendaVives"
+
+
+
 function App() {
   return (
     <div>
@@ -27,6 +38,17 @@ function App() {
         <Route path="/casa_club/cotizar" element={<CotizarEvento/>}/>
         <Route path="*" element={"404"}/>
         <Route path="/" element={<Inicio/>}/>
+
+        <Route path="/VivendasVives/CrearArrendamiento" element ={<CrearArrendamientoVives/>}/>
+        <Route path="/EventosCasaClub/CrearReservaHabitacionCasaClub" element ={<CrearReservaHabitacionCasaClub/>}/>
+
+        <Route path="/HabitacionCasaClub/ModificarReserva" element ={<ModificarReservaHabitacionCasaClub/>}/>
+        <Route path="/VivendasVives/ModificarArrendamiento" element ={<ModificarArrendamiento/>}/>
+
+        <Route path="/ViviendasVives" element ={<CrudViviendasVives/>}/>
+
+
+
       </Routes>
     </Router>
     </div>

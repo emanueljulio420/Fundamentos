@@ -18,6 +18,9 @@ function HeaderAdmin() {
             <Link className="Links" to={'/loggin/inicioAdmin/h_casa_club'}>
               Habitaciones casa club
             </Link>
+            <Link className="Links" to={'/ViviendasVives'}>
+              Viviendas Vives
+            </Link>
           </div>
         </div>
       </div>
