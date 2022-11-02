@@ -1,4 +1,4 @@
-import HeaderVolver from "../Componentes/Header_volver";
+import HeaderVolver from "../Componentes/HeaderCrudVives";
 //import Cotizacion from "../Componentes/Cotizacion";
 import ModificarArriendo from "../Componentes/ModificarArrendamientoVives";
 

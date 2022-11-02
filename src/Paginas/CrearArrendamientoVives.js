@@ -1,4 +1,4 @@
-import HeaderVolver from "../Componentes/Header_volver";
+import HeaderVolver from "../Componentes/HeaderCrudVives";
 import Arriendoinfo from "../Componentes/CrearArrendamientoVives";
 
 

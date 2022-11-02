@@ -1,4 +1,4 @@
-import Header from "../Componentes/HeaderAdmin";
+import Header from "../Componentes/HeaderCrudEvento";
 import CrearEvento from "../Componentes/CrearEvento";
 
 function CrearEventos() {
