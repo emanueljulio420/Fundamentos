@@ -8,15 +8,6 @@ var even = [];
 
 const numeritoEvento = 0;
 
-axios
-  .get("http://localhost:4000/eventos")
-  .then((response) => {
-    even = response.data;
-    console.log(even);
-  })
-  .catch((e) => {
-    console.log(e);
-  });
 
 axios
   .get("http://localhost:4000/usuarios")
@@ -28,6 +19,18 @@ axios
   });
 
 function ModificarEvento() {
+
+  axios
+  .get("http://localhost:4000/eventos")
+  .then((response) => {
+    even = response.data;
+    console.log(even);
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+
+
   const Evento = new evento();
 
   const [numeroE, setnumeroE] = useState("");
