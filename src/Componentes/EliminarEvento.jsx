@@ -4,50 +4,37 @@ import evento from "../Modelo/Evento";
 
 var even = [];
 
-axios
+
+function EliminarEvento() {
+
+  axios
   .get("http://localhost:4000/eventos")
   .then((response) => {
     even = response.data;
-    console.log(even);
   })
   .catch((e) => {
     console.log(e);
   });
 
 
-function EliminarEvento() {
   const Evento = new evento();
 
     const [Id , setId] = useState('')
 
-/*
-  const [body, setbody] = useState({Id:""});
-
-
-  const inputChange = ({ target }) => {
-    const { name, value } = target;
-    setbody({
-      ...body,
-      [name]: value,
-    });
-  }
-*/
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-      Evento.onDelete(Id);
+      Evento.eliminarEvento(Id);
     }
 
 
   const verificarEvento = (ev) => {
     ev.preventDefault();
-    var verificacion = false;
-    for (var i = 1; i <= even.length + 1; i++) {
+    for (var i = 0; i <= even.length + 1; i++) {
       if (parseFloat(Id) === even[i]["Id"]) {
         alert('El evento existe')
       }
     }
-
   }
 
   return (
@@ -55,7 +42,7 @@ function EliminarEvento() {
       <section className="text-center container">
         <div className="row py-lg-5">
           <div className="col-lg-6 col-md-8 mx-auto">
-            <h1>Modificar Evento</h1>
+            <h1>Eliminar Evento</h1>
           </div>
         </div>
       </section>

@@ -1,201 +1,79 @@
-import React from "react";
+import axios  from "axios";
+import React, { useState } from "react";
+import HabitacionesV from "../Modelo/Habitaciones_ViviendasVives"
+
+var reservas = []
 
 function CancelarArrendamientoVives(){
-    
+
+  axios.get("http://localhost:4000/reservasHabitacionesV")
+  .then((response) => {
+    reservas =  response.data;
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+
+  const [Id , setId] = useState("");
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    const habitaciones = new HabitacionesV("id","nombre","TipoDeHabitacion","Fecha_ingreso","Fecha_Salida","cantidadPersonas");
+      habitaciones.eliminarReserva(Id)
+    }
+
+  const verificacionReserva = (ev) => {
+    ev.preventDefault();
+    for (var i = 0; i <= reservas.length + 1; i++) {
+      if (parseFloat(Id) === reservas[i]["numero"]) {
+        alert('El evento existe')
+      }
+    }
+  }
+
     return (
-    <main>
-        <section className="text-center container">
-          <div className="row py-lg-5">
-            <div className="col-lg-6 col-md-8 mx-auto">
-              <h1>Cancelación arrendamiento</h1>
-            </div>
+      <main>
+      <section className="text-center container">
+        <div className="row py-lg-5">
+          <div className="col-lg-6 col-md-8 mx-auto">
+            <h1>Cancelar reserva habitacion</h1>
           </div>
-          
-        </section>
-        
-        <div className="container">
-        <h6>Información del estudiante: </h6>
-
-          <form className="row g-3 needs-validation" novalidate>
-
-
-            <div className="col-md-4">
-              <label for="inputPassword4" className="form-label">
-                Número de documento
-              </label>
-              <input
-                type="number"
-                className="form-control"
-                id="Documento"
-                placeholder="Documento del estudiante"
-                required
-              />
-            </div>
-
-            <div className="col-md-6">
-                
-              <button
-                className="btn my-3 border-danger btn-outline-dark p-3"
-                type="sumit"
-              >
-                Buscar
-              </button>
-              </div>
-
-            
-
-            <div className="col-md-6">
-              <label for="inputEmail4" className="form-label">
-                Nombre
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="nombreE"
-                placeholder="Nombre del estudiante"
-                required
-              />
-            </div>
-            
-           
-
-            <div className="col-md-6">
-              <label for="inputPassword4" className="form-label">
-                Teléfono
-              </label>
-              <input
-                type="number"
-                className="form-control"
-                id="telefono"
-                placeholder="Teléfono del estudiante"
-                required
-              />
-            </div>
-            
-            <div className="col-md-6">
-              <label for="inputPassword4" className="form-label">
-                Correo
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="correoEstudiante"
-                placeholder="Correo del estudiante"
-                required
-              />
-            </div>
-
-            <h6>Información de la habitación: </h6>
-
-            <div className="col-md-4">
-              <label for="inputZip" className="form-label">
-                Fecha de ingreso
-              </label>
-              <input type="date" className="form-control" id="fecha" required />
-            </div>
-
-            <div className="col-md-2">
-              <label for="disabledSelect" className="form-label">
-                Tipo de habitación
-              </label>
-
-              <select id="TipoHabitacion" className="form-select" required>
-                <option></option>
-                <option value={1}>Estándar</option>
-                <option value={2}>Balcón</option>
-                <option value={3}>Terraza</option>
-              </select>
-
-            </div>
-            <div className="col-md-6">
-              <label for="inputEmail4" className="form-label">
-                Número de la habitación
-              </label>
-              <input
-                type="number"
-                className="form-control"
-                id="nombreE"
-                placeholder="Número de habitación"
-                required
-              />
-            </div>
-
-            <h6>Información del Tutor (Solo para menores de edad):</h6>
-
-            <div className="col-md-6">
-              <label for="inputPassword4" className="form-label">
-                Tutor legal
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="nombreTutor"
-                placeholder="Nombre del tutor"
-                
-              />
-            </div>
-            <div className="col-md-2">
-              <label for="disabledSelect" className="form-label">
-                Tipo de Documento
-              </label>
-              <select id="Docuemto" className="form-select" >
-                <option></option>
-                <option value={2}>C.C</option>
-              </select>
-            </div>
-            <div className="col-md-4">
-              <label for="inputPassword4" className="form-label">
-                Número de documento
-              </label>
-              <input
-                type="number"
-                className="form-control"
-                id="DocumentoTutor"
-                placeholder="Documento del tutor"
-                
-              />
-            </div>
-            <div className="col-md-6">
-              <label for="inputPassword4" className="form-label">
-                Correo
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="correoTutor"
-                placeholder="Correo del tutor"
-                
-              />
-            </div>
-            <div className="col-md-6">
-              <label for="inputPassword4" className="form-label">
-                Teléfono
-              </label>
-              <input
-                type="number"
-                className="form-control"
-                id="telefonoTutor"
-                placeholder="Teléfono del tutor"
-                
-              />
-            </div>
-            
-       
-            <button
-              className="btn my-3 border-danger btn-outline-dark p-3"
-              type="sumit"
-            >
-              Cancelar Arrendamiento
-            </button>
-            
-            
-            
-           
-          </form>
         </div>
-      </main>
+      </section>
+      <div className="container">
+        <form className="row m-5 needs-validation" onSubmit={verificacionReserva}>
+          <div className="col-md-6">
+            <label htmlFor="phone" className="form-label">
+              Numero de reserva
+            </label>
+            <input
+              type="number"
+              className="form-control"
+              id="Id"
+              name="Id"
+              onChange={(ev) => setId(ev.target.value)}
+              placeholder="Numero de reserva"
+              required
+            />
+          </div>
+          <button
+            className="btn my-3 col-md-6 border-danger btn-outline-danger p-3"
+            type="sumit"
+          >
+            Buscar reserva
+          </button>
+        </form>
+        <form className="row m-5 needs-validation" onSubmit={handleSubmit}>
+          <button
+            className="btn my-3 border-danger btn-outline-danger p-3"
+            type="sumit"
+          >
+            Cancelar reserva
+          </button>
+          </form>
+      </div>
+    </main>
       );
 }
-
 
 export default CancelarArrendamientoVives;

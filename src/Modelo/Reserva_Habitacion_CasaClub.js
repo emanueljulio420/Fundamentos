@@ -1,18 +1,18 @@
 import axios from "axios";
 
-class Habitaciones_ViviendasVives {
+class Reserva_Habitacion_CasaClub{
 
-    constructor(id,nombre,TipoDeHabitacion,Fecha_ingreso,Fecha_Salida,cantidadPersonas){
-        this.id = id;
+    constructor(id,correo,telefono,nombre,Fecha_ingreso,Fecha_Salida){
+        this.cedula = id;
         this.nombre = nombre;
-        this.tipo_habitacion = TipoDeHabitacion;
-        this.cantidadPersonas = cantidadPersonas
+        this.telefono = telefono
+        this.correo = correo;
         this.checkin = Fecha_ingreso;
         this.checkout = Fecha_Salida;
     }
 
     nuevaReserva = (datos) => {
-        axios.post("http://localhost:4000/reservaHabitacionesV", datos)
+        axios.post("http://localhost:4000/reservaHabitacionesC", datos)
           .then(({ data }) => {
             console.log(data)
             alert("Reserva creada")
@@ -25,7 +25,7 @@ class Habitaciones_ViviendasVives {
 
       eliminarReserva = async (Id) =>{
         try {
-            const{data}= await axios.post('http://localhost:4000/eliminarReservaHabitacionesV', {Id:Id}) 
+            const{data}= await axios.post('http://localhost:4000/eliminarReservaHabitacionesC', {Id:Id}) 
             alert('Eliminado correctamente')
         } catch (error) {
             console.log(error)
@@ -34,12 +34,13 @@ class Habitaciones_ViviendasVives {
       };
 
     habitaciones = async (setUserList) => {
-        const { data } = await axios.get("http://localhost:4000/habitacionesV");
+        const { data } = await axios.get("http://localhost:4000/habitacionesC");
         console.log(data);
         setUserList(data);
       };
 
 
-    }
- 
-export default Habitaciones_ViviendasVives;
+
+}
+
+export default Reserva_Habitacion_CasaClub;

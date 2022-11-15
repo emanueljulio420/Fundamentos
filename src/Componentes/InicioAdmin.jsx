@@ -1,54 +1,83 @@
+import axios from "axios";
 import React from "react";
 import { useState } from "react";
-import axios from "axios";
 
-var cedulas = [];
+var cedulas = []
 
 axios.get("http://localhost:4000/usuarios")
-  .then((response) => {
-    cedulas = response.data;
-    console.log(cedulas);
-  })
-  .catch((e) => {
-    console.log(e);
-  });
-
+.then((response) => {
+  cedulas = response.data;
+  console.log(cedulas);
+})
+.catch((e) => {
+  console.log(e);
+});
 
 function InicioAdmin() {
 
-    const [cedula, setCedula] = useState('')
+  const [cedula, setCedula] = useState();
 
 
-
-    const handleSubmit = (ev) => {
-        ev.preventDefault();
-        var verificacion = buscarUsuario(parseFloat(cedula));
-        if (verificacion){
-          alert('Usuaro existe')
-        }
-        else{
-          alert('Usuario no existente')
-        }
-      };
+  const vefidicarUsuario = (ev) => {
+    ev.preventDefault();
+    var nada = false;
+    for (var i = 0; i <= cedulas.length + 1; i++) {
+      if (parseInt(cedula) === cedulas[i]["cedula"]){
+        nada = true;
+        var inputcedula = document.getElementById("cedula");
+        inputcedula.value = cedulas[i]["cedula"]
+        var inputnombre = document.getElementById("nombre");
+        inputnombre.value = cedulas[i]["nombre"]
+        var inputdireccion = document.getElementById("direccion");
+        inputdireccion.value = cedulas[i]["direccion"]
+        var inputtelefono = document.getElementById("telefono");
+        inputtelefono.value = cedulas[i]["telefono"]
+        break
+      }
+    }
+    if (nada === true){
+      alert("Usuario existe")
+    }
+  }
 
   return (
-    <div class="container text-center my-5">
-      <div class="row">
-        <div class="col">1 of 2</div>
-        <div class="col">
-          <form className="needs-validation" onSubmit={handleSubmit}>
-            <div class="form-floating mb-2">
+    <div className="container my-5">
+      <div className="row">
+        <div className="col">
+  <fieldset disabled>
+    <legend>Usuario</legend>
+    <div className="mb-3">
+      <label htmlFor="disabledTextInput" className="form-label">Cedula</label>
+      <input type="text" id="cedula" className="form-control"/>
+    </div>
+    <div className="mb-3">
+      <label htmlFor="disabledTextInput" className="form-label">Nombre</label>
+      <input type="text" id="nombre" className="form-control"/>
+    </div>
+    <div className="mb-3">
+      <label htmlFor="disabledTextInput" className="form-label">Direccion</label>
+      <input type="text" id="direccion" className="form-control"/>
+    </div>
+    <div className="mb-3">
+      <label htmlFor="disabledTextInput" className="form-label">Telefono</label>
+      <input type="text" id="telefono" className="form-control"/>
+    </div>
+  </fieldset>
+        </div>
+        <div className="col">
+          <form className="needs-validation" onSubmit={vefidicarUsuario}>
+            <div className="form-floating mb-2">
               <input
                 type="number"
-                class="form-control"
+                className="form-control"
                 id="floatingPassword"
                 placeholder="Cedula"
-                onChange={ev => setCedula(ev.target.value)}
+                onChange={(ev) => setCedula(ev.target.value)}
                 required
               />
-              <label for="floatingPassword">Cedula</label>
+              <label htmlFor="floatingPassword">Cedula</label>
             </div>
-            <button class="w-100 btn btn-lg btn-danger" type="submit">
+            <button className="w-100 btn btn-lg btn-danger" type="submit">
               Consultar
             </button>
           </form>
@@ -58,12 +87,6 @@ function InicioAdmin() {
   );
 }
 
-const buscarUsuario = (cedula) =>{
-  for (var i = 1; i <= cedulas.length + 1; i++) {
-    if (cedula === cedulas[i]['cedula']){
-      return true
-    }
-  }
-}
 
 export default InicioAdmin;
+

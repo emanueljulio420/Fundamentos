@@ -4,9 +4,7 @@ import logo_v from "../Imagenes/logo_Viviendas_vives.png";
 import { Link } from "react-router-dom";
 
 function Inicio() {
-
-  //require('./Modelo/db.php')
-
+  
   return (
     <main>
       <section className="py-5 text-center container">

@@ -30,7 +30,6 @@ class evento {
     }
 
     nuevoEvento = (numeroEventos, datos) => {
-      console.log(numeroEventos)
         axios.post("http://localhost:4000/evento", datos)
           .then(({ data }) => {
             console.log(data)
@@ -43,17 +42,17 @@ class evento {
       };
  
 
-    onDelete= async(Id) =>{
+    eliminarEvento = async (Id) =>{
       try {
-          const{data}= await axios.post('http://localhost:4000/api/eliminar', {Id:Id}) 
+          const{data}= await axios.post('http://localhost:4000/evento/eliminar', {Id:Id}) 
           alert('Eliminado correctamente')
       } catch (error) {
           console.log(error)
           
       }
-      
-  }
+    };
 
-}  
+  }
+  
 
 export default evento;

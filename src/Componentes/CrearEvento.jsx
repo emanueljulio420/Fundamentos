@@ -4,28 +4,27 @@ import evento from "../Modelo/Evento";
 
 var cedulas = [];
 
-axios
-  .get("http://localhost:4000/usuarios")
-  .then((response) => {
-    cedulas = response.data;
-    console.log(cedulas);
-  })
-  .catch((e) => {
-    console.log(e);
-  });
+var eventos = [];
 
-  var eventos = [];
+function CrearEvento() {
+
   axios
-    .get("http://localhost:4000/eventos")
+    .get("http://localhost:4000/usuarios")
     .then((response) => {
-      eventos = response.data;
-      console.log(eventos);
+      cedulas = response.data;
     })
     .catch((e) => {
       console.log(e);
     });
-
-function CrearEvento() {
+  
+    axios
+      .get("http://localhost:4000/eventos")
+      .then((response) => {
+        eventos = response.data;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
 
   const [nombreEv, setnombreEv] = useState("");
   const [nombreEm, setnombreEm] = useState("");
@@ -247,7 +246,7 @@ function CrearEvento() {
 export default CrearEvento;
 
 const verificar = (telC, numeroP, cedula) => {
-  if (telC > 1000000000 && telC < 10000000000) {
+  if (!(telC > parseInt(1000000000) || telC < parseInt(10000000000))) {
     alert("Telefono incorrecto");
     return false;
   }
@@ -259,6 +258,7 @@ const verificar = (telC, numeroP, cedula) => {
   for (var i = 0; i < cedulas.length; i++) {
     if (cedula === cedulas[i]["cedula"]) {
       cedula_correcta = true;
+      break
     }
   }
   if (!cedula_correcta) {
