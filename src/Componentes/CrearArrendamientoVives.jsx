@@ -150,6 +150,10 @@ function CrearArrendamientoVives(){
                 </label>
                 <select id="montaje" className="form-select" onChange={(ev) => setHabitacion(ev.target.value)} required>
                   <option>Seleccione una habitacion</option>
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                  <option value={4}>4</option>
                   <option value={101}>101</option>
                   <option value={102}>102</option>
                   <option value={103}>103</option>
