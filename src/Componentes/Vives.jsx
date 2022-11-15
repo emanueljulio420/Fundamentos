@@ -60,7 +60,6 @@ function Vives() {
                     <li className="list-group-item">2 camas</li>
                     <li className="list-group-item">Closet</li>
                     <li className="list-group-item">Blackout</li>
-                    <li className="list-group-item">Sala de coworking</li>
                     <li className="list-group-item">Mueble de cocina: Microondas y nevera</li>
                     <li className="list-group-item">Zona de estudio: Escritorio, silla y tablero</li>
                     <li className="list-group-item">Conectividad: WIFI</li>
